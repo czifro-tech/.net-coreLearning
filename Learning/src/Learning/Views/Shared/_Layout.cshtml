@@ -9,6 +9,7 @@
 <div>
     <li><a asp-controller="App" asp-action="Index">Home</a></li>
     <li><a asp-controller="App" asp-action="About">About</a></li>
+    <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
     <li><a href="~/">Home</a></li>
 </div>
 <div>
@@ -18,7 +19,7 @@
 <br/>
 <br/>
 <br/>
-
 <div>Time to learn new things!</div>
+    @RenderSection("Scripts", false)
 </body>
 </html>

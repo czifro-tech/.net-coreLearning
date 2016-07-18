@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
+using Learning.ViewModels;
 
 namespace Learning.Controllers
 {
@@ -17,6 +18,17 @@ namespace Learning.Controllers
         }
 
         public IActionResult ValueReturn()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel model)
         {
             return View();
         }
