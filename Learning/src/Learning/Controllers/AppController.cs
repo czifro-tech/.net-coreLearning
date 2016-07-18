@@ -1,12 +1,19 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Learning.ViewModels;
+using Learning.Services;
 
 namespace Learning.Controllers
 {
 
     public class AppController : Controller
     {
+        private IMailService _mailService;
+
+        public AppController(IMailService service)
+        {
+            _mailService = service;
+        }
         public IActionResult Index()
         {
             return View();
@@ -30,6 +37,16 @@ namespace Learning.Controllers
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+            var email = Startup.Configuration["AppSet:Email"];
+            _mailService.SendMail(
+                email,
+                email,
+                $"Contact Page from {model.Name} ({model.Email})",
+                model.Message);
+
+            }
             return View();
         }
     }
