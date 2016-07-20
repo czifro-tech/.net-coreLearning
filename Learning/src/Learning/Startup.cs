@@ -30,6 +30,10 @@ namespace Learning
         {
             services.AddMvc();
 
+
+
+
+
 #if DEBUG
             services.AddScoped<IMailService, DebugMailService>();
 #else
