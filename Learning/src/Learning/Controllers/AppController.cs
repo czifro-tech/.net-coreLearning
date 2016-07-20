@@ -40,11 +40,22 @@ namespace Learning.Controllers
             if (ModelState.IsValid)
             {
             var email = Startup.Configuration["AppSet:Email"];
-            _mailService.SendMail(
+
+                if (string.IsNullOrEmpty(email))
+                {
+                    ModelState.AddModelError("", "Could not send email, config");
+                }
+
+                if(_mailService.SendMail(
                 email,
                 email,
                 $"Contact Page from {model.Name} ({model.Email})",
-                model.Message);
+                model.Message))
+                {
+                    ModelState.Clear();
+
+                    ViewData["Message"] = "You did it!! Mail was sent ^_^";
+                }
 
             }
             return View();

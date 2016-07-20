@@ -4,22 +4,42 @@
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/index.css" />
 </head>
 <body>
-<div>
-    <li><a asp-controller="App" asp-action="Index">Home</a></li>
-    <li><a asp-controller="App" asp-action="About">About</a></li>
-    <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
-    <li><a href="~/">Home</a></li>
-</div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Learn .net core!</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a asp-controller="App" asp-action="Index">Home</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")"><a asp-controller="App" asp-action="About">About</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")"><a asp-controller="App" asp-action="Contact">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div>
     @RenderBody()
 </div>
 @* Footer *@
-<br/>
-<br/>
-<br/>
-<div>Time to learn new things!</div>
+    <footer class="container-fluid">
+        <p>Time to learn new things!</p>
+    </footer>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+   
     @RenderSection("Scripts", false)
 </body>
 </html>
