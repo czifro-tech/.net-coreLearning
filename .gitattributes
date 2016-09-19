@@ -1,6 +1,10 @@
 $ cat .gitattributes
+Learning/src/Learning/wwwroot/lib/* linguist-vendored
 .net-coreLearning/Learning/src/Learning/wwwroot/lib/* linguist-vendored
 .net-coreLearning/Learning/src/Learning/wwwroot/lib/* linguist-vendored=true
+
+cat .gitattributes
+Learning/src/Learning/wwwroot/lib/* linguist-vendored
 
 # jquery Validate Unobtrusive
 -jquery.validate.unobtrusive.js linguist-vendored=true
