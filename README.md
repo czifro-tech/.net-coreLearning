@@ -1,4 +1,4 @@
-# Building .NET Core From the Ground Up
-Building .NET Core MVC6 EF7 From the Ground Up.
+# Porting .NET Core Web to Suave
+Portinging .NET Core MVC6 EF7 to Suave
 
-The starting point for this app will be a blank asp .net core web app. I wanted to build this app from the ground up because this is just a proof of concept app for learning... When I am more familiar with .net core I will start using the starting templates.
+The starting point for this app will be a completed asp.net core web app. I want to build this app by porting from an existing app because this is to just learn using Suave... Razor will be replaced with DotLiquid
